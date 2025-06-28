@@ -1,4 +1,4 @@
-# 🔐 Auth System — React + Tailwind + API Integration
+# 🔐 JVAI Task — React + Tailwind + API Integration
 
 A responsive login and signup system built with **React.js**, **Tailwind CSS**, and **external API integration** for user authentication. Includes client-side validation and toast notifications for real-time feedback.
 
