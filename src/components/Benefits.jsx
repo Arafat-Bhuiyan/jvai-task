@@ -6,9 +6,9 @@ const Benefits = () => {
     <div>
       <section
         id="benefits"
-        className="bg-[#1e293b] py-12 mt-20 md:py-24 px-10 min-h-[400px]"
+        className="bg-[#1e293b] py-12 mt-20 md:py-24 px-10 min-h-96"
       >
-        <h2 className="text-[2.074rem] font-bold mb-8 text-[#60a5fa] text-center tracking-tight">
+        <h2 className="text-4xl font-bold mb-8 text-blue-500 text-center tracking-tight">
           Benefits
         </h2>
         <div className="max-w-[1000px] mx-auto">

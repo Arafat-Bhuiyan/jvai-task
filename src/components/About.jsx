@@ -6,7 +6,7 @@ const About = () => {
       <div className="h-[60px] w-full"></div>
       <section
         id="about"
-        className="py-12 md:py-12 px-10 min-h-[400px] w-[90%] max-w-[1200px] text-center mx-auto flex flex-col justify-center items-center gap-4"
+        className="py-12 md:py-12 px-10 min-h-96 w-[90%] max-w-[1200px] text-center mx-auto flex flex-col justify-center items-center gap-4"
       >
         <h1 className="text-blue-500 font-extrabold text-4xl">
           About Clin Technologies
