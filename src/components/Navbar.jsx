@@ -23,7 +23,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-slate-900/90">
+      <div className="navbar fixed bg-slate-900 top-0 left-0 w-full h-[60px] bg-[rgba(15,23,42,0.95)] backdrop-blur-[12px] z-[100] flex items-center px-10 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]">
         <div className="navbar">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,15 +44,19 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-900/90 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 text-slate-400 no-underline text-base tracking-[0.01em] transition-all duration-300 ease-in-out relative cursor-pointer bg-transparent border-none font-medium"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Clin</a>
+          <a className="btn btn-ghost normal-case text-2xl font-bold text-[#ffffff]">
+            Clin
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-1 text-slate-400 no-underline text-base font-medium tracking-[0.01em] transition-all duration-300 ease-in-out relative cursor-pointer bg-transparent border-none">
+            {links}
+          </ul>
         </div>
       </div>
     </div>
