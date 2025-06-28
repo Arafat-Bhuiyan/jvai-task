@@ -42,5 +42,5 @@ Tailwind utility classes ensure consistent spacing, alignment, and layout across
 ## 👨‍💻 Author
 
 **Arafat Bhuiyan**
-Frontend Developer
-[LinkedIn](https://www.linkedin.com/in/arafatbhuiyan/) | [GitHub](https://github.com/Arafat-Bhuiyan)
+- Frontend Developer
+- [LinkedIn](https://www.linkedin.com/in/arafatbhuiyan/) | [GitHub](https://github.com/Arafat-Bhuiyan)
