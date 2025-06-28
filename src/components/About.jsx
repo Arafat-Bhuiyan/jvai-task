@@ -2,9 +2,12 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="relative mt-0 bg-slate-900 z-5">
+    <div className="relative mt-10 w-full bg-[#1e293b] z-5">
       <div className="h-[60px] w-full"></div>
-      <section id="about" className="py-12 md:py-24 px-10 min-h-[400px] w-[90%] max-w-[1200px] text-center mx-auto flex flex-col justify-center items-center gap-4">
+      <section
+        id="about"
+        className="py-12 md:py-12 px-10 min-h-[400px] w-[90%] max-w-[1200px] text-center mx-auto flex flex-col justify-center items-center gap-4"
+      >
         <h1 className="text-blue-500 font-extrabold text-4xl">
           About Clin Technologies
         </h1>

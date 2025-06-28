@@ -1,5 +1,7 @@
 import About from "../components/About";
 import ClinTech from "../components/ClinTech";
+import Feature from "../components/Feature";
+import InAction from "../components/InAction";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -8,6 +10,8 @@ const Home = () => {
       <Navbar />
       <ClinTech />
       <About />
+      <Feature />
+      <InAction />
     </div>
   );
 };

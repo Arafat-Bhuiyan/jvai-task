@@ -5,10 +5,10 @@ const Navbar = () => {
         <a href="#about">About</a>
       </li>
       <li>
-        <a href="#our-solution">Our Solution</a>
+        <a href="#feature">Our Solution</a>
       </li>
       <li>
-        <a href="#in-action">In Action</a>
+        <a href="#inAction">In Action</a>
       </li>
       <li>
         <a href="#technology">Technology</a>
