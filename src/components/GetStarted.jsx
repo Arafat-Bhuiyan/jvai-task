@@ -19,7 +19,7 @@ const GetStarted = () => {
           </p>
           <div className="max-w-[600px] mx-auto bg-slate-900/90 p-8 rounded-xl shadow-lg border border-blue-800">
             <div className="mt-8 text-center">
-              <p class="text-gray-400">
+              <p className="text-gray-400">
                 Or reach us directly via email at <a href="" class="text-blue-400 hover:underline">support@clintechso.com</a>
               </p>
             </div>

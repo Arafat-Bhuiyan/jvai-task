@@ -7,11 +7,17 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Layout from "./components/Layout";
 import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <Provider store={store}>
+        <Layout />
+      </Provider>
+    ),
     children: [
       {
         path: "/",

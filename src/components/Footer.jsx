@@ -12,7 +12,7 @@ const Footer = () => {
             Privacy Policy
           </a>
         </div>
-        <div class="text-gray-500 text-sm">
+        <div className="text-gray-500 text-sm">
           <p>© 2025 Clin Technologies. All rights reserved.</p>
         </div>
       </div>

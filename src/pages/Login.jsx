@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useLoginUserMutation } from "../redux/slice/aliApi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
+
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,32 +32,12 @@ const Login = () => {
     if (Object.keys(newErrors).length > 0) return;
 
     try {
-      setLoading(true);
-      const res = await fetch(
-        "https://alibackend.duckdns.org/authentication_app/signin/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message || "Login failed");
-        return;
-      }
-
-      localStorage.setItem("token", data.token); // or data.access if token key is named differently
+      const result = await loginUser({ email, password }).unwrap();
+      localStorage.setItem("token", result.token || result.access);
       toast.success("Login successful!");
       navigate("/");
     } catch (error) {
-      toast.error("Something went wrong. Try again.");
-    } finally {
-      setLoading(false);
+      toast.error(err?.data?.message || "Login Failed");
     }
   };
 
@@ -114,14 +95,14 @@ const Login = () => {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={isLoading}
                 className={`w-full flex justify-center py-2 px-4 rounded-md text-sm font-medium text-white transition ${
-                  loading
+                  isLoading
                     ? "bg-blue-300 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
-                {loading ? "Logging in..." : "Login"}
+                {isLoading ? "Logging in..." : "Login"}
               </button>
 
               <div className="text-center mt-2">

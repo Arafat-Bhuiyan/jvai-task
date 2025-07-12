@@ -1,14 +1,16 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useSignupUserMutation } from "../redux/slice/aliApi";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const [signupUser, { isLoading }] = useSignupUserMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,31 +40,14 @@ const Signup = () => {
 
     // API Call
     try {
-      setLoading(true);
-      const res = await fetch(
-        "https://alibackend.duckdns.org/authentication_app/signup/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message || "Signup failed");
-        return;
-      }
-
-      toast.success("Signup successful! Check your email for OTP.");
-      navigate("/login"); // Or redirect to OTP page if needed
-    } catch (error) {
-      toast.error("Something went wrong. Try again.");
-    } finally {
-      setLoading(false);
+      console.log("Sending signup request...");
+      const res = await signupUser({ email, password }).unwrap();
+      console.log("Signup success:", res);
+      toast.success("Signup successful!");
+      navigate("/login");
+    } catch (err) {
+      console.log("Signup error:", err)
+      toast.error(err?.data?.message || "Something went wrong. Try again.");
     }
   };
 
@@ -141,14 +126,14 @@ const Signup = () => {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={isLoading}
                 className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white transition ${
-                  loading
+                  isLoading
                     ? "bg-blue-300 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
-                {loading ? "Signing up..." : "Sign Up"}
+                {isLoading ? "Signing up..." : "Sign Up"}
               </button>
 
               <div className="text-center">
